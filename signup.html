@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+  </head>
+  <body>
+<div id="nav">
+      <nav>
+        <div class="logo">Logo</div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+</div>
+<div class="container-1">
+      <div id="wrapper">
+        <ul class="box-product">
+          <a href="">
+            <li class="box-man" id="li-1">
+              <h4 class="sub-title">Computer</h4>
+              <img src="./unnamed.png" height="" />
+            </li>
+          </a>
+
+          <a href="">
+            <li class="box-man" id="li-2">
+              <h4 class="sub-title">Work Better & Have More Fun</h4>
+              <span class="sus-title"
+                >Enhance your life style with 500+ smart devices</span
+              >
+              <button class="btn-primary">Add to Cart</button>
+            </li>
+          </a>
+
+          <a href="">
+            <li class="box-man">
+              <h4 class="sub-title">Mobiles</h4>
+              <img
+                src="https://i.pinimg.com/474x/60/1b/f8/601bf865cad153c1914fe75271b4b5d0.jpg"
+              />
+            </li>
+          </a>
+        </ul>
+      </div>
+
+      <div id="sec-post"></div>
+
+      <div id="sales">
+        <h4>Best Prices</h4>
+      </div>
+      <div class="scrolling-container">
+        <ul class="product-list" id="productList"></ul>
+      </div>
+
+      <div class="ads-poster">
+        <h3 class="title">Crystal UHD 4k</h3>
+        <h5 id="title">-True to Life Color-</h5>
+        <button>$478.00</button>
+      </div>
+      <div class="ads-poster-2">
+        <h3 class="title">Top Pick Camera</h3>
+        <h5 id="title">-Best Thing to Buy-</h5>
+        <button>$478.00</button>
+      </div>
+      <div class="container" id="container">
+        <div class="form-container sign-up-container">
+          <form action="#" id="form">
+            <h1>Create Account</h1>
+            <div class="social-container">
+              <a href="" class="social"><i class="fab fa-facebook-f"></i></a>
+              <a href="" class="social"><i class="fab fa-google-plus-g"></i></a>
+              <a href="" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>or use your email for registration</span>
+            <input id="email" type="email" placeholder="Email" />
+            <input id="password" type="password" placeholder="Password" />
+            <button>Sign In</button>
+          </form>
+        </div>
+        <div class="form-container sign-in-container">
+          <form action="#">
+            <h1>Sign In</h1>
+            <div class="social-container">
+              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social"
+                ><i class="fab fa-google-plus-g"></i
+              ></a>
+              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>or use your account</span>
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <a href="#">Forgot your password?</a>
+            <button>Sign In</button>
+          </form>
+        </div>
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1>Welcome Back!</h1>
+              <p>
+                To keep connected with us please login with your personal info
+              </p>
+              <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1>Hello, Friend!</h1>
+              <p>Enter your personal details and start journey with us</p>
+              <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<footer>
+        <div class="footer-content">
+            <div class="left-side">
+                <h3>Thông tin liên hệ</h3>
+                <p>Địa chỉ: 123 Đường ABC, Thành phố XYZ</p>
+                <p>Email: example@example.com</p>
+            </div>
+            <div class="right-side">
+                <h3>Liên kết</h3>
+                <ul>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#">Dịch vụ</a></li>
+                    <li><a href="#">Giới thiệu</a></li>
+                </ul>
+            </div>
+        </div>
+</footer>
+<script src="./main.js"></script>
+<script type="module" src="">
+    // Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDtEi9xblQ9jLmu1hiBgzQxFo4MG3Kw5oc",
+  authDomain: "example-ef896.firebaseapp.com",
+  projectId: "example-ef896",
+  storageBucket: "example-ef896.appspot.com",
+  messagingSenderId: "423848112349",
+  appId: "1:423848112349:web:7166d9d2b69f8265b8eb34",
+  measurementId: "G-KTYLB362X7"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+</script>
+  </body>
+  
+</html>

@@ -1,72 +1,130 @@
+
+
+
 let products = {
     data: [
         {
-            productName: "Mid Backpack",
-            price: "400000",
-            image: "https://product.hstatic.net/1000365849/product/balo_luoi_be_1_c4b57120089f4d0aae9abe982239789a_master.jpg"
+            productName: "TVs & Home Theaters",
+            
+            image: "https://i.pinimg.com/474x/94/74/3f/94743fffacb6fd97982390e173579ae7.jpg"
         },
 
         {
-            productName: "Slash Backpack",
-            price: "500000",
-            image: "https://product.hstatic.net/1000365849/product/slash_backpack_nau_1_cb0280190ff04f31b9fe581c5802b1fc_master.jpg"
+            productName: "Smart Home & Security",
+            
+            image: "https://i.pinimg.com/474x/13/8a/81/138a81db311a8c4cd2134c456a9ab91f.jpg"
         },
 
         {
-            productName: "Mini Square",
-            price: "400000",
-            image: "https://product.hstatic.net/1000365849/product/mini_square_hong_1_46cdb167d7ca42d39d51e4892457737d_master.jpg"
+            productName: "Wearable Tech",
+            
+            image: "https://i.pinimg.com/474x/32/99/54/329954b1007d0c5de2cc5dfe380bd383.jpg"
         },
 
         {
-            productName: "Flip Backpack",
-            price: "400000",
-            image: "https://product.hstatic.net/1000365849/product/flip_backpack__1__b0c4b95520b54afa8d3ab4b29673b75d_master.jpg"
+            productName: "Tablets",
+            
+            image: "https://i.pinimg.com/474x/e1/ff/40/e1ff40249dac202cd4afe82d9378ea30.jpg"
         },
 
         {
-            productName: "New Mini Backpack",
-            price: "500000",
-            image: "https://product.hstatic.net/1000365849/product/new_mini_backpack_hong_1_51a580ce4a7a483b883e95e592d921c5_master.jpg"
+            productName: "Camera & Drones",
+            image: "https://i.pinimg.com/474x/2a/3a/c1/2a3ac1c6a09c2470d9974417f50764ae.jpg"
         },
 
         {
-            productName: "New Original Backpack",
-            price: "500000",
-            image: "https://product.hstatic.net/1000365849/product/new_ori_cream_1.5_1bcd5cbc223947cfbdab487cc0285c0b_master.jpg"
+            productName: "Headphones",
+            image: "https://i.pinimg.com/564x/99/4c/38/994c383053af8f1643ff9231311ccad1.jpg"
         },
     ]
 }
 
-for(let i of products.data){
-    let card = document.createElement("div")
-    card.classList.add("khung")
+for (let i of products.data) {
+    let div = document.getElementById("sec-post");
+    let wrapper = document.createElement("ul");
+    wrapper.classList.add('box-product');
+    div.appendChild(wrapper);
 
-    let imgContainer = document.createElement("div")
-    imgContainer.classList.add("imgContainer")
-    
-    let img = document.createElement("img")
-    img.setAttribute("src",i.image)
-    imgContainer.appendChild(img)
-    card.appendChild(imgContainer)
+    let link = document.createElement("a");
+    link.href = "#";
+    wrapper.appendChild(link)
 
-    let container = document.createElement("div")
-    container.classList.add("container")
+    let box = document.createElement("li");
+    box.classList.add("box-man");
+    link.appendChild(box);
 
-    let name = document.createElement("div")
-    name.classList.add("product-name")
-    name.innerText = i.productName.toUpperCase();
-    container.appendChild(name);
+    let name = document.createElement('h4');
+    name.classList.add("sub-title");
+    name.textContent = i.productName;
+    box.appendChild(name);
 
-    let price = document.createElement("h6")
-    price.innerText = i.price + "$";
-    container.appendChild(price);
-
-    card.appendChild(container);
-    document.getElementById("products").appendChild(card);
-
+    let background = document.createElement("img");
+    background.setAttribute("src", i.image);
+    box.appendChild(background);
 }
 
+
+
+
+  
+ 
+const product = [
+    { name: "", price: 99.99, image: "https://i.pinimg.com/474x/3a/86/8e/3a868e6da65b63e10506922ec8a4974b.jpg" },
+    { name: "", price: 129.99, image: "https://i.pinimg.com/474x/58/6b/01/586b010189e55d7737bbedba7ef32690.jpg" },
+    { name: "", price: 79.99, image: "https://i.pinimg.com/474x/27/e5/20/27e5201bb2220754c8165a38b72516b3.jpg" }
+    
+  ];
+  
+  
+  function createProductCard(product) {
+    const li = document.createElement('li');
+    const div = document.createElement('div');
+    div.classList.add('product-card');
+  
+    const img = document.createElement('img');
+    img.src = product.image;
+    img.alt = product.name;
+  
+    const h3 = document.createElement('h3');
+    h3.textContent = product.name;
+  
+    const p = document.createElement('p');
+    p.textContent = '$' + product.price;
+  
+    const a = document.createElement('a');
+    a.href = '#';
+    a.textContent = 'Buy Now';
+    a.classList.add('btn');
+  
+    div.appendChild(img);
+    div.appendChild(h3);
+    div.appendChild(p);
+    div.appendChild(a);
+    li.appendChild(div);
+  
+    return li;
+  }
+  
+  
+  function renderProductList() {
+    const productList = document.getElementById('productList');
+    product.forEach(product => {
+      const productCard = createProductCard(product);
+      productList.appendChild(productCard);
+    });
+  }
+  renderProductList();
+  
+
+function loopProductList() {
+    const productList = document.getElementById('productList');
+    const firstProduct = productList.children[0];
+    productList.removeChild(firstProduct);
+    productList.appendChild(firstProduct);
+  }
+  setInterval(loopProductList, 3000);
+  
+  
 document.getElementById("button-search").addEventListener("click",() => {
     let searchInput = document.getElementById("search-inpt").value.toUpperCase();
     let card = document.querySelectorAll(".card")
@@ -80,3 +138,72 @@ document.getElementById("button-search").addEventListener("click",() => {
         }
     })
 })
+// let imgContainer = document.createElement("div")
+    // imgContainer.classList.add("imgContainer")
+    
+    
+
+    // let container = document.createElement("div")
+    // container.classList.add("container")
+
+    // let name = document.createElement("div")
+    // name.classList.add("product-name")
+    // name.innerText = i.productName.toUpperCase();
+    // container.appendChild(name);
+
+    // let price = document.createElement("h6")
+    // price.innerText = i.price + "$";
+    // container.appendChild(price);
+
+    // card.appendChild(container);
+    // document.getElementById("products").appendChild(card);
+ // Lắng nghe sự kiện gửi biểu mẫu đăng nhập
+ var loginForm = document.getElementById('form');
+ loginForm.addEventListener('submit', function (e) {
+     e.preventDefault();
+     var email = document.getElementById('email').value;
+     var password = document.getElementById('password').value;
+     var errorMessage = document.getElementById('error-message');
+
+     // Đăng nhập bằng Firebase Auth
+     signInWithEmailAndPassword(getAuth(), email, password)
+         .then(function (userCredential) {
+             // Đăng nhập thành công
+             var user = userCredential.user;
+             alert('Đăng nhập thành công: ' + user.email)
+             console.log('Đăng nhập thành công: ' + user.email);
+             window.location.href = 'main.html'; // Chuyển hướng sau khi đăng nhập
+         })
+         .catch(function (error) {
+             // Xử lý lỗi đăng nhập
+             var errorCode = error.code;
+             var errorMessage = error.message;
+             console.log('Lỗi đăng nhập: ' + errorMessage);
+             errorMessage.textContent = errorMessage;
+         });
+ });
+
+ // Lắng nghe sự kiện gửi biểu mẫu đăng ký
+ var signupForm = document.getElementById('signup-form');
+ signupForm.addEventListener('submit', function (e) {
+     e.preventDefault();
+     var email = document.getElementById('signup-email').value;
+     var password = document.getElementById('signup-password').value;
+     var errorMessage = document.getElementById('error-message');
+     
+     // Đăng ký bằng Firebase Auth
+     createUserWithEmailAndPassword(getAuth(), email, password)
+         .then(function (userCredential) {
+             // Đăng ký thành công
+             var user = userCredential.user;
+             console.log('Đăng ký thành công: ' + user.email);
+             window.location.href = '#'; // Chuyển hướng sau khi đăng ký
+         })
+         .catch(function (error) {
+             // Xử lý lỗi đăng ký
+             var errorCode = error.code;
+             var errorMessage = error.message;
+             console.log('Lỗi đăng ký: ' + errorMessage);
+             errorMessage.textContent = errorMessage;
+         });
+ });
