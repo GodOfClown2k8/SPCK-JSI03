@@ -1,13 +1,5 @@
 
-const firebaseConfig = {
-    apiKey: "AIzaSyDtEi9xblQ9jLmu1hiBgzQxFo4MG3Kw5oc",
-    authDomain: "example-ef896.firebaseapp.com",
-    projectId: "example-ef896",
-    storageBucket: "example-ef896.appspot.com",
-    messagingSenderId: "423848112349",
-    appId: "1:423848112349:web:7166d9d2b69f8265b8eb34",
-    measurementId: "G-KTYLB362X7"
-  };
+   
 
 let products = {
     data: [
@@ -44,14 +36,15 @@ let products = {
             productName: "Headphones",
             image: "https://i.pinimg.com/564x/99/4c/38/994c383053af8f1643ff9231311ccad1.jpg"
         },
+
     ]
 }
 
 for (let i of products.data) {
     let div = document.getElementById("sec-post");
+
     let wrapper = document.createElement("ul");
     wrapper.classList.add('box-product');
-    div.appendChild(wrapper);
 
     let link = document.createElement("a");
     link.href = "#";
@@ -69,6 +62,8 @@ for (let i of products.data) {
     let background = document.createElement("img");
     background.setAttribute("src", i.image);
     box.appendChild(background);
+
+    div.appendChild(wrapper); 
 }
 
 
@@ -77,10 +72,10 @@ for (let i of products.data) {
   
  
 const product = [
-    { name: "", price: 99.99, image: "https://i.pinimg.com/474x/3a/86/8e/3a868e6da65b63e10506922ec8a4974b.jpg" },
-    { name: "", price: 129.99, image: "https://i.pinimg.com/474x/58/6b/01/586b010189e55d7737bbedba7ef32690.jpg" },
-    { name: "", price: 79.99, image: "https://i.pinimg.com/474x/27/e5/20/27e5201bb2220754c8165a38b72516b3.jpg" }
-    
+    { name: "Charger", price: 99.99, image: "https://i.pinimg.com/474x/3a/86/8e/3a868e6da65b63e10506922ec8a4974b.jpg" },
+    { name: "Laptop", price: 129.99,image: "https://i.pinimg.com/474x/58/6b/01/586b010189e55d7737bbedba7ef32690.jpg" },
+    { name: "Camera", price: 79.99, image: "https://i.pinimg.com/474x/27/e5/20/27e5201bb2220754c8165a38b72516b3.jpg" },
+    { name: "Speaker", price: 49.99, image: "https://i.pinimg.com/474x/d5/70/1f/d5701f4ef61b5624ed96c90d158eb038.jpg"},
   ];
   
   
@@ -165,62 +160,67 @@ function loopProductList() {
 
     // card.appendChild(container);
     // document.getElementById("products").appendChild(card);
-    function handleLoginFormSubmit() {
-        var loginForm = document.getElementById('login-form');
-        loginForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var email = document.getElementById('login-email').value;
-            var password = document.getElementById('login-password').value;
-            var errorMessage = document.getElementById('login-error-message');
+    const firebaseConfig = {
+        apiKey: "AIzaSyDtEi9xblQ9jLmu1hiBgzQxFo4MG3Kw5oc",
+        authDomain: "example-ef896.firebaseapp.com",
+        projectId: "example-ef896",
+        storageBucket: "example-ef896.appspot.com",
+        messagingSenderId: "423848112349",
+        appId: "1:423848112349:web:7166d9d2b69f8265b8eb34",
+        measurementId: "G-KTYLB362X7"
+      };
     
-            // Đăng nhập bằng Firebase Auth
-            signInWithEmailAndPassword(getAuth(), email, password)
-                .then(function (userCredential) {
-                    // Đăng nhập thành công
-                    var user = userCredential.user;
-                    alert('Đăng nhập thành công: ' + user.email)
-                    console.log('Đăng nhập thành công: ' + user.email);
-                    window.location.replace('main.html'); // Chuyển hướng sau khi đăng nhập
-                })
-                .catch(function (error) {
-                    // Xử lý lỗi đăng nhập
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    console.log('Lỗi đăng nhập: ' + errorMessage);
-                    errorMessage.textContent = errorMessage;
-                });
-        });
-    }
-    
-    // Gọi function để xử lý sự kiện khi biểu mẫu đăng nhập được gửi
-    handleLoginFormSubmit();
-    
-    function handleSignUpFormSubmit() {
-        var SignUpForm = document.getElementById('signup-form');
-        SignUpForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var email = document.getElementById('signup-email').value;
-            var password = document.getElementById('signup-password').value;
-            var errorMessage = document.getElementById('signup-error-message');
-    
-            // Đăng kí bằng Firebase Auth
-            createUserWithEmailAndPassword(getAuth(), email, password)
-                .then(function (userCredential) {
-                    // Đăng kí thành công
-                    var user = userCredential.user;
-                    alert('Đăng kí thành công: ' + user.email)
-                    console.log('Đăng kí thành công: ' + user.email);
-                    window.location.replace('main.html'); // Chuyển hướng sau khi đăng kí
-                })
-                .catch(function (error) {
-                    // Xử lý lỗi đăng kí
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    console.log('Lỗi đăng kí: ' + errorMessage);
-                    errorMessage.textContent = errorMessage;
-                });
-        });
-    }
-    
-    // Gọi function để xử lý sự kiện khi biểu mẫu đăng kí đư
-    handleSignUpFormSubmit();
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      
+      function signIn() {
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+      
+        auth.signInWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            showUserInfo(user);
+          })
+          .catch((error) => {
+            console.error('Error signing in:', error.message);
+          });
+      }
+      
+      function signUp() {
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+      
+        auth.createUserWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            showUserInfo(user);
+          })
+          .catch((error) => {
+            console.error('Error signing up:', error.message);
+          });
+      }
+      
+      function signOut() {
+        auth.signOut()
+          .then(() => {
+            console.log('Signed out successfully');
+            hideUserInfo();
+          })
+          .catch((error) => {
+            console.error('Error signing out:', error.message);
+          });
+      }
+      
+      function showUserInfo(user) {
+        document.getElementById('user-email').textContent = `Welcome, ${user.email}!`;
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('user-info').style.display = 'block';
+      }
+      
+      function hideUserInfo() {
+        document.getElementById('user-email').textContent = '';
+        document.getElementById('login-form').style.display = 'block';
+        document.getElementById('user-info').style.display = 'none';
+      }
