@@ -41,6 +41,10 @@ body {
     text-decoration: none;
     color: white;
   }
+  .nav-links  li:hover{
+    text-decoration: underline;
+    background-color: #00E238;
+  }
   
   .burger {
     display: none;

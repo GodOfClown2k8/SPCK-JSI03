@@ -1,6 +1,4 @@
 
-   
-
 let products = {
     data: [
         {
@@ -128,6 +126,7 @@ function loopProductList() {
   setInterval(loopProductList, 3000);
   
   
+  
 // document.getElementById("button-search").addEventListener("click",() => {
 //     let searchInput = document.getElementById("search-inpt").value.toUpperCase();
 //     let card = document.querySelectorAll(".card")
@@ -160,6 +159,13 @@ function loopProductList() {
 
     // card.appendChild(container);
     // document.getElementById("products").appendChild(card);
+
+    const signIn = document.getElementById("signIn")
+    console.log(signIn)
+signIn.addEventListener('click', (e)=>{
+    signIn()
+})
+    
     const firebaseConfig = {
         apiKey: "AIzaSyDtEi9xblQ9jLmu1hiBgzQxFo4MG3Kw5oc",
         authDomain: "example-ef896.firebaseapp.com",
@@ -174,6 +180,8 @@ function loopProductList() {
       firebase.initializeApp(firebaseConfig);
       const auth = firebase.auth();
       
+
+
       function signIn() {
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-password').value;
@@ -182,6 +190,7 @@ function loopProductList() {
           .then((userCredential) => {
             const user = userCredential.user;
             showUserInfo(user);
+            window.location.replace("mainhub.html");
           })
           .catch((error) => {
             console.error('Error signing in:', error.message);
@@ -196,6 +205,7 @@ function loopProductList() {
           .then((userCredential) => {
             const user = userCredential.user;
             showUserInfo(user);
+            window.location.replace("mainhub.html");
           })
           .catch((error) => {
             console.error('Error signing up:', error.message);
@@ -207,6 +217,7 @@ function loopProductList() {
           .then(() => {
             console.log('Signed out successfully');
             hideUserInfo();
+            window.location.replace("main.html");
           })
           .catch((error) => {
             console.error('Error signing out:', error.message);
@@ -224,3 +235,7 @@ function loopProductList() {
         document.getElementById('login-form').style.display = 'block';
         document.getElementById('user-info').style.display = 'none';
       }
+
+
+
+      
