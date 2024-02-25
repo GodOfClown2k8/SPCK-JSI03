@@ -166,12 +166,12 @@ function loopProductList() {
     // card.appendChild(container);
     // document.getElementById("products").appendChild(card);
     function handleLoginFormSubmit() {
-        var loginForm = document.getElementById('form');
+        var loginForm = document.getElementById('login-form');
         loginForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-            var errorMessage = document.getElementById('error-message');
+            var email = document.getElementById('login-email').value;
+            var password = document.getElementById('login-password').value;
+            var errorMessage = document.getElementById('login-error-message');
     
             // Đăng nhập bằng Firebase Auth
             signInWithEmailAndPassword(getAuth(), email, password)
@@ -180,7 +180,7 @@ function loopProductList() {
                     var user = userCredential.user;
                     alert('Đăng nhập thành công: ' + user.email)
                     console.log('Đăng nhập thành công: ' + user.email);
-                    window.location.href = 'main.html'; // Chuyển hướng sau khi đăng nhập
+                    window.location.replace('main.html'); // Chuyển hướng sau khi đăng nhập
                 })
                 .catch(function (error) {
                     // Xử lý lỗi đăng nhập
@@ -195,14 +195,13 @@ function loopProductList() {
     // Gọi function để xử lý sự kiện khi biểu mẫu đăng nhập được gửi
     handleLoginFormSubmit();
     
-
     function handleSignUpFormSubmit() {
-        var SignUpForm = document.getElementById('form');
+        var SignUpForm = document.getElementById('signup-form');
         SignUpForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-            var errorMessage = document.getElementById('error-message');
+            var email = document.getElementById('signup-email').value;
+            var password = document.getElementById('signup-password').value;
+            var errorMessage = document.getElementById('signup-error-message');
     
             // Đăng kí bằng Firebase Auth
             createUserWithEmailAndPassword(getAuth(), email, password)
@@ -211,7 +210,7 @@ function loopProductList() {
                     var user = userCredential.user;
                     alert('Đăng kí thành công: ' + user.email)
                     console.log('Đăng kí thành công: ' + user.email);
-                    window.location.href = 'main.html'; // Chuyển hướng sau khi đăng kí
+                    window.location.replace('main.html'); // Chuyển hướng sau khi đăng kí
                 })
                 .catch(function (error) {
                     // Xử lý lỗi đăng kí
@@ -223,6 +222,5 @@ function loopProductList() {
         });
     }
     
-    // Gọi function để xử lý sự kiện khi biểu mẫu đăng nhập được gửi
+    // Gọi function để xử lý sự kiện khi biểu mẫu đăng kí đư
     handleSignUpFormSubmit();
-    
