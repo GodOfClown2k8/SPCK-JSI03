@@ -44,7 +44,7 @@
           </form>
         </div>
         <div class="form-container sign-in-container">
-          <form action="#" id="signup-form">
+          <form action="#" id="form">
             <h1>Sign Up</h1>
             <div class="social-container">
               <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -57,7 +57,7 @@
             <input type="email" placeholder="Email" id="signup-email"/>
             <input type="password" placeholder="Password" id="signup-password"/>
             <a href="#">Forgot your password?</a>
-            <button onclick="signUp()">Sign Up</button>
+            <button id="signUp">Sign Up</button>
           </form>
         </div>
         <div class="overlay-container">
@@ -89,30 +89,31 @@
             </div>
         </div>
 </footer>
+<script type="module" src="./SignIn.js"></script>
 <script src="./main.js"></script>
 <script type="module" src="">
     // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+// import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// // TODO: Add SDKs for Firebase products that you want to use
+// // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDtEi9xblQ9jLmu1hiBgzQxFo4MG3Kw5oc",
-  authDomain: "example-ef896.firebaseapp.com",
-  projectId: "example-ef896",
-  storageBucket: "example-ef896.appspot.com",
-  messagingSenderId: "423848112349",
-  appId: "1:423848112349:web:7166d9d2b69f8265b8eb34",
-  measurementId: "G-KTYLB362X7"
-};
+// // Your web app's Firebase configuration
+// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDtEi9xblQ9jLmu1hiBgzQxFo4MG3Kw5oc",
+//   authDomain: "example-ef896.firebaseapp.com",
+//   projectId: "example-ef896",
+//   storageBucket: "example-ef896.appspot.com",
+//   messagingSenderId: "423848112349",
+//   appId: "1:423848112349:web:7166d9d2b69f8265b8eb34",
+//   measurementId: "G-KTYLB362X7"
+// };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// // Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 
 </script>
   </body>
