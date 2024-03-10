@@ -146,6 +146,15 @@ function loopProductList() {
 }
 setInterval(loopProductList, 3000);
 
+document.addEventListener('DOMContentLoaded', function() {
+	var showListButton = document.getElementById('show-list-button');
+	var listContainer = document.getElementById('list-container');
+
+	showListButton.addEventListener('click', function() {
+		listContainer.style.display = 'flex';
+    listContainer.textContent = 'Name: $'+ product.name[i] +' - Price: $'+ product.price[i]
+	});
+});
 // document.getElementById("button-search").addEventListener("click",() => {
 //     let searchInput = document.getElementById("search-inpt").value.toUpperCase();
 //     let card = document.querySelectorAll(".card")

@@ -2,7 +2,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
      
 
 const firebaseConfig = {
@@ -27,39 +27,10 @@ const analytics = getAnalytics(app);
 // })
 // console.log(form)
 
-function signIn() {
-  const email = document.getElementById('login-email').value;
-  const password = document.getElementById('login-password').value;
-
-  const auth = getAuth();
-signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {  
-      const user = userCredential.user;
-      console.log('dang nhap thanh cong:'+user.email);
-      alert("đăng nhập thành công")
-      window.location.href = 'mainhub.html';
-  })
-  .catch((error) => {
-      console.error('Lỗi đăng nhap', error.message);
-      var errorcode = error.code;
-      var errormessage = error.message;
-      errormessage.textContent = errormessage;
-  });
-}
-
-const btnsignIn = document.getElementById("signIn");
-console.log(btnsignIn);
-btnsignIn.addEventListener( "click", function(e){
-    signIn()
-    // e.preventDefault();
-   
-})
-
 const butnsinUp = document.getElementById("signUp");
 console.log(butnsinUp);
 butnsinUp.addEventListener( "click", function(e){
     signUp()
-    e.preventDefault();
 });
 
 function signUp() {

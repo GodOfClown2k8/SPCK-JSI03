@@ -13,12 +13,27 @@
   <body>
     <div id="nav">
       <nav>
-        <div class="logo">Logo</div>
+        <div class="logo"><img src="./download.png" alt="" srcset="" /></div>
         <ul class="nav-links">
           <li><a href="./mainhub.html">Home</a></li>
           <li><a href="./About.html">About</a></li>
           <li><a href="./service.html">Services</a></li>
           <li><a href="./contact.html">Contact</a></li>
+          <li>
+            <a href="">
+              <button>Shopping Cart</button>
+              <button id="show-list-button">Show List</button>
+              <div id="list-container" style="display: none">
+                <ul id="item-list">
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                  <li>Item 4</li>
+                  <li>Item 5</li>
+                </ul>
+              </div>
+            </a>
+          </li>
         </ul>
         <div class="burger">
           <div class="line1"></div>
@@ -26,8 +41,8 @@
           <div class="line3"></div>
         </div>
       </nav>
-</div>
-<div class="container-1">
+    </div>
+    <div class="container-1">
       <div id="wrapper">
         <ul class="box-product">
           <a href="">
@@ -77,44 +92,45 @@
         <h5 id="title">-Best Thing to Buy-</h5>
         <button>$478.00</button>
       </div>
-      
-</div>
+    </div>
 
-<footer>
-        <div class="footer-content">
-            <div class="left-side">
-                <h3>Thông tin liên hệ</h3>
-                <p>Địa chỉ: 123 Đường ABC, Thành phố XYZ</p>
-                <p>Email: example@example.com</p>
-            </div>
-            <div class="right-side">
-                <h3>Liên kết</h3>
-                <ul>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Dịch vụ</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                </ul>
-            </div>
+    <footer>
+      <div class="footer-content">
+        <div class="left-side">
+          <h3>Thông tin liên hệ</h3>
+          <p>Địa chỉ: 123 Đường ABC, Thành phố XYZ</p>
+          <p>Email: example@example.com</p>
         </div>
-</footer>
-<script src="./main.js"></script>
-<script type="module" src="">
- // Cấu hình Firebase
- import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
-        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js';
-       
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+        <div class="right-side">
+          <h3>Liên kết</h3>
+          <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Dịch vụ</a></li>
+            <li><a href="#">Giới thiệu</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+    <script type="module" src="">
+      // Cấu hình Firebase
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
 
- // Khởi tạo ứng dụng Firebase
- const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
-</script>
+      // Khởi tạo ứng dụng Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
   </body>
-  
 </html>
