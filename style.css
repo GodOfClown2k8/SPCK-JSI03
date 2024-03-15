@@ -44,7 +44,7 @@ nav .logo img {
 }
 nav {
   display: flex;
-  justify-content: space-between;
+  
   align-items: center;
   background-color: #333;
   color: white;
@@ -80,6 +80,15 @@ nav {
   height: 3px;
   background-color: white;
   margin: 5px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 #list-container {
 	position: fixed;

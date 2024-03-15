@@ -155,6 +155,23 @@ document.addEventListener('DOMContentLoaded', function() {
     listContainer.textContent = 'Name: $'+ product.name[i] +' - Price: $'+ product.price[i]
 	});
 });
+
+// Lấy thẻ <a> và thẻ <div> nổi
+const cartLink = document.querySelector('.cart-link');
+const overlay = document.querySelector('.overlay');
+
+// Hiển thị thẻ <div> nổi khi click vào thẻ <a>
+cartLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    overlay.style.display = 'block';
+});
+
+// Ẩn thẻ <div> nổi khi click vào nút Đóng hoặc ngoài thẻ <div> nổi
+overlay.addEventListener('click', function(e) {
+    if (e.target === overlay || e.target.classList.contains('close')) {
+        overlay.style.display = 'none';
+    }
+});
 // document.getElementById("button-search").addEventListener("click",() => {
 //     let searchInput = document.getElementById("search-inpt").value.toUpperCase();
 //     let card = document.querySelectorAll(".card")
